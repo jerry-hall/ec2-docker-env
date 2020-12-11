@@ -18,4 +18,4 @@ echo "sudo docker stop ${IMAGE_NAME}" > stop.sh
 echo "./stop.sh; sudo docker rm ${IMAGE_NAME}" > terminate.sh
 chmod +x connect.sh stop.sh terminate.sh
 
-sudo docker exec –it ${IMAGE_NAME} /bin/bash
+sudo docker exec -it ${IMAGE_NAME} /bin/bash
