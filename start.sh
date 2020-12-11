@@ -1,12 +1,20 @@
-sudo amazon-linux-extras install docker
-
+if [[ -z $(which docker) ]]; then
+    echo Docker not installed.
+    echo Installing Docker... 
+    echo
+    sudo amazon-linux-extras install docker
+    echo
+    echo Docker installed.
+fi
+echo
 echo Starting docker...
 sudo service docker start
-
+echo
 IMAGE_NAME="workspace"
 echo Building docker image \"${IMAGE_NAME}\"
 sudo docker build -t ${IMAGE_NAME} .
 
+echo
 echo Starting image ${IMAGE_NAME}...
 echo .....To quit, type exit.....
 echo .....To re-connect later, type ./connect.sh.....
