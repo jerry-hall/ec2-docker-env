@@ -7,6 +7,5 @@ SSH into EC2 instance and run:
 sudo yum install git -y
 git clone https://github.com/jerry-hall/ec2-docker-env.git
 cd ec2-docker-env
-chmod +x start.sh
 ./start.sh
 ```
