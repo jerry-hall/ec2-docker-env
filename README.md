@@ -9,3 +9,24 @@ git clone https://github.com/jerry-hall/ec2-docker-env.git
 cd ec2-docker-env
 ./start.sh
 ```
+
+If you see the following, you are inside the container.
+```
+[root@docker-############ /]$
+```
+
+To exit the container, type:
+```
+[root@docker-############ /]$ exit
+```
+
+To reconnect to the container, type:
+```
+ec2 $ ./connect.ssh
+```
+
+To stop/terminate container, type:
+```
+ec2 $ ./stop.sh
+ec2 $ ./terminate.sh
+```
