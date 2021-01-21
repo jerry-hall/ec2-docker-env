@@ -21,8 +21,12 @@ echo .....To re-connect later, type ./connect.sh.....
 echo .....To stop or terminate, type ./stop.sh or ./terminate.....
 echo
 echo
-echo Image ID:
-sudo docker run --name ${IMAGE_NAME} -dt ${IMAGE_NAME} 
+# Run docker image if the image isn't already running
+if [[ -z $(sudo $(docker container ls | grep ${IMAGE_NAME})) ]]
+then
+    echo Image ID:
+    sudo docker run --name ${IMAGE_NAME} -dt ${IMAGE_NAME} 
+fi
 echo
 echo
 
