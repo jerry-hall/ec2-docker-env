@@ -7,7 +7,8 @@ SSH into EC2 instance and run:
 sudo yum install git -y
 git clone https://github.com/jerry-hall/ec2-docker-env.git
 cd ec2-docker-env
-./start.sh
+export PATH=$PATH:$(pwd)
+start.sh
 ```
 
 If you see the following, you are inside the container.
@@ -22,11 +23,11 @@ To exit the container, type:
 
 To reconnect to the container, type:
 ```
-ec2 $ ./connect.ssh
+ec2 $ connect.ssh
 ```
 
 To stop/terminate container, type:
 ```
-ec2 $ ./stop.sh
-ec2 $ ./terminate.sh
+ec2 $ stop.sh
+ec2 $ terminate.sh
 ```
