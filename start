@@ -12,7 +12,7 @@ sudo service docker start
 echo
 IMAGE_NAME="workspace"
 echo Building docker image \"${IMAGE_NAME}\"
-sudo docker build -t ${IMAGE_NAME} .
+sudo docker build -t ${IMAGE_NAME} /home/ec2-user/ec2-docker-env/.
 
 echo
 echo Starting image ${IMAGE_NAME}...
@@ -30,9 +30,9 @@ fi
 echo
 echo
 
-echo "sudo docker exec -it ${IMAGE_NAME} /bin/bash" > connect
-echo "sudo docker stop ${IMAGE_NAME}" > stop
-echo "stop; sudo docker rm ${IMAGE_NAME}" > terminate
+echo "sudo docker exec -it ${IMAGE_NAME} /bin/bash" > /home/ec2-user/ec2-docker-env/connect
+echo "sudo docker stop ${IMAGE_NAME}" > /home/ec2-user/ec2-docker-env/stop
+echo "stop; sudo docker rm ${IMAGE_NAME}" > /home/ec2-user/ec2-docker-env/terminate
 chmod +x connect stop terminate
 
 sudo docker exec -it ${IMAGE_NAME} /bin/bash
