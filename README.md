@@ -7,7 +7,7 @@ SSH into EC2 instance and run:
 sudo yum install git -y
 git clone https://github.com/jerry-hall/ec2-docker-env.git
 cd ec2-docker-env
-echo "export PATH=\"$PATH:/home/ec2-user/ec2-docker-env\"" | sudo tee -a /etc/profile; source /etc/profile
+if [[ -z $(echo $PATH | grep ec2-docker-env) ]]; then echo "export PATH=\"$PATH:/home/ec2-user/ec2-docker-env\"" | sudo tee -a /etc/profile; source /etc/profile; fi
 start
 ```
 
