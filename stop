@@ -1,0 +1,9 @@
+if [[ -z "$1" ]]; then 
+    echo You must specify a container name.
+    echo ex: stop container-name
+    echo 
+    echo 
+    sudo docker ps
+else
+    sudo docker stop $1
+fi

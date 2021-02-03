@@ -10,7 +10,11 @@ echo
 echo Starting docker...
 sudo service docker start
 echo
-IMAGE_NAME="workspace"
+if [[ -z "$1" ]]; then
+    IMAGE_NAME="workspace"
+else
+    IMAGE_NAME="$1"
+fi
 echo Building docker image \"${IMAGE_NAME}\"
 sudo docker build -t ${IMAGE_NAME} /home/ec2-user/ec2-docker-env/.
 
@@ -30,9 +34,4 @@ fi
 echo
 echo
 
-echo "sudo docker exec -it ${IMAGE_NAME} /bin/bash" > /home/ec2-user/ec2-docker-env/connect
-echo "sudo docker stop ${IMAGE_NAME}" > /home/ec2-user/ec2-docker-env/stop
-echo "stop; sudo docker rm ${IMAGE_NAME}" > /home/ec2-user/ec2-docker-env/terminate
-chmod +x connect stop terminate
-
-sudo docker exec -it ${IMAGE_NAME} /bin/bash
+connect $IMAGE_NAME
